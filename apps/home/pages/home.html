@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}-达微实验室</title>
+    <script src="/home/dist/home.bundle.js"></script>
+</head>
+<body page-name="{{page_name}}">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand dawei-logo" href="/index.html"></a>
+            </div>
+        
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="menu-index"><a href="/index.html">首页</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" href="javascript:;" role="button" aria-haspopup="true" aria-expanded="false">分类</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item menu-news" href="/home/news.html">资讯</a>                       
+                        <a class="dropdown-item menu-platform" href="/home/platform.html">平台</a>
+                        <a class="dropdown-item menu-case" href="/home/case.html">案例</a>
+                        <a class="dropdown-item menu-tech" href="/home/tech.html">技术</a>
+                        <a class="dropdown-item menu-other" href="/home/other.html">其他</a>
+                    </div>
+                </li>
+                
+                <li class="menu-work"><a href="/community.html">社区</a></li>
+                <li class="menu-work"><a href="/work.html">工作</a></li>
+                <li class="menu-service"><a href="/service.html">服务</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content">
+                    {{each list article }}
+                    <article class="post">
+                        <div class="post-head">
+                            <h1 class="post-title">
+                                <a href="/post/2016-ban-laravel-xi-lie-ru-men-jiao-cheng-si/">{{article.title}}</a>
+                            </h1>
+                            <div class="post-meta">
+                                <span class="author">作者：<a href="http://lvwenhan.com" target="_blank">JohnLui</a></span> • <time class="post-date" datetime="June 6, 2016 7:19 AM" title="June 6, 2016 7:19 AM">2016年06月06日</time>
+                            </div>
+                        </div>
+                        <div class="featured-media">
+                            <a href="/post/2016-ban-laravel-xi-lie-ru-men-jiao-cheng-si/">
+                                <img src="{{article.cover}}" alt="{{article.title}}">
+                            </a>
+                        </div>
+                        <div class="post-content">
+                            <p>{{content}}</p>
+                        </div>
+                        <div class="post-permalink">
+                            <a href="/post/2016-ban-laravel-xi-lie-ru-men-jiao-cheng-si/" class="btn btn-link">
+                                阅读全文
+                            </a>
+                        </div>
+                        <footer class="post-footer clearfix"></footer>
+                    </article>
+                    {{/each}}
+
+                    <div class="pagination-container">
+                        <ul class="pagination">
+                            {{if(pager.page == 0)}}
+                                <li class="disabled"><a href="javascript:;">&laquo;</a></li>
+                            {{else}}
+                                <li><a href="{{prefix}}/{{page_name}}.html">&laquo;</a></li>
+                            {{/if}}                   
+                            
+                            {{each pagerange i}}
+                                {{if(i==pager.page) }}
+                                    <li class="active"><a href="{{prefix}}/{{page_name}}-{{i}}.html">{{i+1}}</a></li>
+                                {{else}}
+                                    <li><a href="{{prefix}}/{{page_name}}-{{i}}.html">{{i+1}}</a></li>
+                                {{/if}}
+                            {{/each}}
+                            {{if(pager.page == pagerange.length - 1)}}
+                                <li  class="disabled"><a href="javascript:;">&raquo;</a></li>
+                            {{else}}
+                                <li><a href="{{prefix}}/{{page_name}}-{{pagerange.length - 1}}.html">&raquo;</a></li>
+                            {{/if}}
+                            
+
+
+                        </ul>
+                    </div>
+
+                          
+                </main>
+
+                <aside class="col-md-4 sidebar">
+                    <div class="widget">
+                        <h4 class="title">社区</h4>
+                        <div class="content community">
+                            <p>QQ群：462694081</p>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h4 class="title">标签</h4>
+                        <div class="content download">
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container"><div class="row">
+            <div class="col-sm-4">
+                <div class="widget">
+                    <h4 class="title">最新文章</h4>
+                    <div class="content recent-post">
+                        <div class="recent-single-post">
+                            <a href="/post/laravel-5-6-is-now-released/" class="post-title">Laravel 5.6 版本正式发布</a>
+                            <div class="date">2018年02月08日</div>
+                        </div>
+                        <div class="recent-single-post">
+                            <a href="/post/laravel-5-5-will-be-the-next-lts-release/" class="post-title">Laravel 5.5 将是下一个 LTS 版本，预计 7/8 月份发布</a>
+                            <div class="date">2017年02月20日</div>
+                        </div>
+                        <div class="recent-single-post">
+                            <a href="/post/laravel-5-4-is-now-released/" class="post-title">Laravel 5.4 版本正式发布</a>
+                            <div class="date">2017年01月24日</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="widget">
+                    <h4 class="title">标签云</h4>
+                    <div class="content tag-cloud">
+                        <a href="/tag-cloud/">...</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="widget">
+                    <h4 class="title">友链</h4>
+                    <div class="content tag-cloud friend-links">
+                        <a href="http://www.bootcss.com" title="Bootstrap 中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'bootcsscom'])" target="_blank">Bootstrap中文网</a> 
+                    </div>
+                </div>
+            </div>
+        </div></div>
+    </footer>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span>Copyright © <a href="http://www.golaravel.com/">Laravel 中文网</a></span> | <span><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备11008151号</a></span> | <span>京公网安备11010802014853</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
