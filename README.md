@@ -1,37 +1,56 @@
-# daweilab
+# coma
+Koa2+webpack+MongoDB = 小应用容器（container of mini app）
 
-#### 项目介绍
-达微实验室
+### 项目介绍
+之前接触了很多微信上面集成的小应用，每个功能比较单一，或者一个平台有若干个单一功能的小应用集成，但是运行需要的基础环境却比较类似。于是便有了这个小应用运行环境容器。
 
-#### 软件架构
-软件架构说明
+此项目是对过去项目开发过程中一些基础开发环境的抽象，使每个app都可以独立的运行在环境中，方便app的开发、部署、交付等工作。
 
-
-#### 安装教程
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 使用说明
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 参与贡献
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
+希望帮助有同类需求的开发者节约开发时间，提高开发效率。
 
 
-#### 码云特技
+### 功能介绍
 
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### 1.coma
+基于koa2提供了运行开发环境，及应用后台插架机制
+
+#### 2.coma-deployer
+基于webpack实现了前端代码开发调试环境和部署功能（针对单页面应用）
+
+#### 3.coma-render
+基于art-template实现页面的服务器渲染（针对需要SEO或静态化的多页面应用）
+
+#### 4.coma-dai
+基于mongodb+mongoose实现了数据访问接口，通过模型配置即可自动实现增删改查等api接口，并且封装了前端调用接口
+
+#### 5.coma-uploader
+上传功能插件，可以上传到服务器或者阿里云oss
+
+### 应用实例
+
+#### 1.apps/home
+coma-render的demo，通过后台渲染，前端库集成了jQuery和bootstrap
+
+#### 2.apps/dai
+coma-dai的demo，coma-dai可以作为在每个应用中使用，但是由于三个demo公用一套数据访问接口，所以单独放在一个应用中，作为后台接口
+
+#### 3.apps/admin
+基于coma-deployer开发vue项目的demo
+
+#### 3.apps/mobile
+基于coma-deployer开发react项目的demo
+
+### TODO
+
+#### 1.dai权限
+目前coma-dai仅完成了数据访问，接口权限还未实现。
+
+#### 2.静态化缓存
+插件coma-cache，基于redis实现数据缓存和静态化内容缓存
+
+#### 3.微信开发接口
+插件coma-weixin，逐步集成微信开发接口：基础接口、授权、分享、支付等
+
+#### 4.完善发布流程
+目前还没有完成一个完整的发布，在项目和demo完善的过程中逐步完善小应用的发布流程
+
