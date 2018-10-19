@@ -26,7 +26,8 @@ module.exports = function(app){
         news : "资讯",
         platform : "平台",
         case : "案例",
-        tech : "技术"
+        tech : "技术",
+        other : "其他"
     }
 
     app.router.get(["/home/:pagename-:page.html","/home/:pagename.html"],async function(ctx){
