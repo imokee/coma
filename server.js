@@ -1,6 +1,6 @@
 
 const coma = require("./libs/coma");
-const config = require("./config");
+const config = require("./config.dev");
 
 coma.configure(config.server);
 
